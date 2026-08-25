@@ -1,5 +1,5 @@
 <template>
-  <div class="relative p-8 sm:p-10 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl shadow-slate-200/50 dark:shadow-none">
+  <div class="relative p-5 sm:p-10 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl shadow-slate-200/50 dark:shadow-none">
     <!-- إضاءة خافتة خلفية -->
     <div class="absolute -top-12 -right-12 w-48 h-48 bg-brand-500/10 rounded-full blur-2xl pointer-events-none"></div>
 
@@ -18,7 +18,7 @@
           type="text"
           required
           placeholder="e.g. John Smith"
-          class="w-full px-4 py-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition"
+          class="w-full px-4 py-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition text-sm sm:text-base"
         />
       </div>
 
@@ -32,7 +32,7 @@
             type="email"
             required
             placeholder="john@example.com"
-            class="w-full px-4 py-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition"
+            class="w-full px-4 py-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition text-sm sm:text-base"
           />
         </div>
         <div>
@@ -43,7 +43,7 @@
             v-model="form.phone"
             type="tel"
             placeholder="786-244-5823"
-            class="w-full px-4 py-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition"
+            class="w-full px-4 py-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition text-sm sm:text-base"
           />
         </div>
       </div>
@@ -54,7 +54,7 @@
         </label>
         <select
           v-model="form.service"
-          class="w-full px-4 py-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition"
+          class="w-full px-4 py-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition text-sm sm:text-base"
         >
           <option value="Tax Return Preparation">Tax Return Preparation Services</option>
           <option value="IRS / Sales Tax Representation">IRS / Sales Tax Representation</option>
@@ -73,14 +73,14 @@
           rows="4"
           required
           placeholder="Describe your financial goals or questions..."
-          class="w-full px-4 py-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition resize-none"
+          class="w-full px-4 py-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition resize-none text-sm sm:text-base"
         ></textarea>
       </div>
 
       <button
         type="submit"
         :disabled="submitting"
-        class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-500 via-sky-500 to-brand-600 hover:from-brand-600 hover:to-sky-600 text-white font-extrabold text-base transition-all duration-300 shadow-xl shadow-brand-500/25 hover:shadow-brand-500/40 hover:-translate-y-0.5 disabled:opacity-70 flex items-center justify-center gap-2"
+        class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-500 via-sky-500 to-brand-600 hover:from-brand-600 hover:to-sky-600 text-white font-extrabold text-base transition-all duration-300 shadow-xl shadow-brand-500/25 hover:shadow-brand-500/40 hover:-translate-y-0.5 disabled:opacity-70 flex items-center justify-center gap-2 cursor-pointer"
       >
         <span v-if="submitting">Sending Message...</span>
         <span v-else-if="submitted">Message Sent Successfully ✓</span>
