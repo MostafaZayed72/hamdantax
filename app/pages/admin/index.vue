@@ -87,51 +87,6 @@
 
     <!-- المحتوى الفعلي للوحة التحكم عند تسجيل الدخول -->
     <div v-else class="space-y-6">
-      <!-- تنبيه حالة الربط مع سوبابيس -->
-      <div
-        v-if="!isConfigured"
-        class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-800 dark:text-amber-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3"
-      >
-        <div class="flex items-center gap-3">
-          <div class="p-2 rounded-xl bg-amber-500/20 text-amber-600 dark:text-amber-300">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <div>
-            <p class="text-sm font-bold">لوحة التحكم تعمل حالياً ببيانات تجريبية محلية</p>
-            <p class="text-xs text-amber-700/80 dark:text-amber-300/80">
-              لم يتم ربط مفاتيح سوبابيس بعد. يمكنك إدخال الرابط والمفتاح الآن لربط البيانات الحية وتفعيل ان8ان.
-            </p>
-          </div>
-        </div>
-        <button
-          @click="showConfigModal = true"
-          class="px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold transition shadow-sm"
-        >
-          إعداد الربط الآن
-        </button>
-      </div>
-
-      <div
-        v-else
-        class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-800 dark:text-emerald-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3"
-      >
-        <div class="flex items-center gap-3">
-          <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
-          <div>
-            <span class="text-xs font-bold">قاعدة بيانات سوبابيس متصلة بنجاح ومزامنة فورية نشطة</span>
-            <span class="text-xs opacity-70 block sm:inline sm:mr-2">({{ supabaseUrl }})</span>
-          </div>
-        </div>
-        <button
-          @click="showConfigModal = true"
-          class="text-xs font-bold text-emerald-700 dark:text-emerald-300 hover:underline"
-        >
-          تعديل مفاتيح الربط
-        </button>
-      </div>
-
       <!-- ترويسة الصفحة والإجراءات الرئيسية -->
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
