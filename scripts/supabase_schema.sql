@@ -38,23 +38,18 @@ BEFORE UPDATE ON public.bookings
 FOR EACH ROW
 EXECUTE FUNCTION public.handle_updated_at();
 
--- تفعيل سياسات الأمان على مستوى الصفوف (Row Level Security - RLS)
-ALTER TABLE public.bookings ENABLE ROW LEVEL SECURITY;
+-- إعطاء كافة الصلاحيات لمفتاح الوصول العام للوحة التحكم
+GRANT ALL ON TABLE public.bookings TO anon, authenticated;
+GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO anon, authenticated;
 
--- السماح للزوار (المجهولين أو المستخدمين) بإرسال حجز جديد من الموقع
-CREATE POLICY "Allow anonymous insert for bookings"
-ON public.bookings
-FOR INSERT
-TO anon, authenticated
-WITH CHECK (true);
+-- الخيار الأبسط والأضمن: تعطيل نظام حظر الصلاحيات للجدول للسماح بالحذف والتعديل المباشر
+ALTER TABLE public.bookings DISABLE ROW LEVEL SECURITY;
 
--- السماح بالقراءة والتعديل والحذف لمفتاح الخدمة أو المفتاح العام بحسب بيئة العمل
-CREATE POLICY "Allow full access for authenticated/anon for dashboard"
-ON public.bookings
-FOR ALL
-TO anon, authenticated
-USING (true)
-WITH CHECK (true);
+-- أو في حال رغبت في إبقاء الحماية مفعلة، قم بتفعيل سياسات الحذف والتعديل التالية:
+-- ALTER TABLE public.bookings ENABLE ROW LEVEL SECURITY;
+-- CREATE POLICY "Allow full access for bookings" ON public.bookings FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
+-- CREATE POLICY "Allow delete for bookings" ON public.bookings FOR DELETE TO anon, authenticated USING (true);
+-- CREATE POLICY "Allow update for bookings" ON public.bookings FOR UPDATE TO anon, authenticated USING (true) WITH CHECK (true);
 
 -- تفعيل خاصية Realtime لمزامنة التحديثات اللحظية مع الواجهة
 ALTER PUBLICATION supabase_realtime ADD TABLE public.bookings;

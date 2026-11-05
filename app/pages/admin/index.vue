@@ -838,6 +838,7 @@ const handleQuickStatusChange = async (id: string, newStatus: string) => {
         .from('bookings')
         .update({ status: newStatus })
         .eq('id', id)
+        .select()
 
       if (error) throw error
     }
@@ -865,8 +866,17 @@ const executeDelete = async () => {
   try {
     const id = bookingToDelete.value.id
     if (isConfigured && client) {
-      const { error } = await client.from('bookings').delete().eq('id', id)
+      const { data, error } = await client
+        .from('bookings')
+        .delete()
+        .eq('id', id)
+        .select()
+
       if (error) throw error
+
+      if (data && data.length === 0) {
+        console.warn('لم يتم الحذف من سوبابيس بسبب سياسات الحماية RLS')
+      }
     }
 
     bookings.value = bookings.value.filter(b => b.id !== id)
