@@ -91,6 +91,8 @@
 </template>
 
 <script setup lang="ts">
+const { client, isConfigured } = useSupabase()
+
 const form = ref({
   name: '',
   email: '',
@@ -101,11 +103,30 @@ const form = ref({
 
 const submitting = ref(false)
 const submitted = ref(false)
+const errorMessage = ref('')
 
-const handleSubmit = () => {
+const handleSubmit = async () => {
   submitting.value = true
-  setTimeout(() => {
-    submitting.value = false
+  errorMessage.value = ''
+
+  try {
+    if (isConfigured && client) {
+      const { error } = await client.from('bookings').insert([
+        {
+          name: form.value.name,
+          email: form.value.email,
+          phone: form.value.phone,
+          service: form.value.service,
+          message: form.value.message,
+          status: 'pending'
+        }
+      ])
+      if (error) throw error
+    } else {
+      // محاكاة الإرسال في حال عدم ربط سوبابيس بعد
+      await new Promise((resolve) => setTimeout(resolve, 800))
+    }
+
     submitted.value = true
     form.value = {
       name: '',
@@ -117,6 +138,11 @@ const handleSubmit = () => {
     setTimeout(() => {
       submitted.value = false
     }, 5000)
-  }, 1000)
+  } catch (err: any) {
+    console.error('Error submitting booking:', err)
+    errorMessage.value = err.message || 'حدث خطأ أثناء إرسال الرسالة، يرجى المحاولة لاحقاً'
+  } finally {
+    submitting.value = false
+  }
 }
 </script>
