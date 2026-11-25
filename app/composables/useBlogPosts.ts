@@ -101,7 +101,7 @@ export const useBlogPosts = () => {
           </p>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-6">
-            <div class="p-5 rounded-2xl bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-brand-500/40 transition">
               <div class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-500 font-bold flex items-center justify-center mb-3">01</div>
               <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Separation of Finances</h3>
               <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -109,7 +109,7 @@ export const useBlogPosts = () => {
               </p>
             </div>
 
-            <div class="p-5 rounded-2xl bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-brand-500/40 transition">
               <div class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-500 font-bold flex items-center justify-center mb-3">02</div>
               <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Proper Categorization</h3>
               <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -117,7 +117,7 @@ export const useBlogPosts = () => {
               </p>
             </div>
 
-            <div class="p-5 rounded-2xl bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-brand-500/40 transition">
               <div class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-500 font-bold flex items-center justify-center mb-3">03</div>
               <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Digital Receipts</h3>
               <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -230,7 +230,7 @@ export const useBlogPosts = () => {
           </h2>
 
           <div class="overflow-x-auto my-6">
-            <table class="w-full text-left text-sm border-collapse rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800">
+            <table class="w-full text-left text-sm border-collapse rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
               <thead class="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-bold">
                 <tr>
                   <th class="p-4 border-b border-slate-200 dark:border-slate-700">Business Model</th>
