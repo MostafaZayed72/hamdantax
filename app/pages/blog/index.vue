@@ -105,4 +105,15 @@ const filteredPosts = computed(() => {
       p.category.toLowerCase().includes(q)
   )
 })
+
+useSeoMeta({
+  title: 'Tax Insights, Bookkeeping & Financial Strategies | Hamdan Tax Blog',
+  description: 'Expert guidance on small business bookkeeping, LLC formation, IRS tax representation, and strategic accounting in Hallandale Beach, Florida.',
+  keywords: 'business bookkeeping, small business tax planning, IRS tax laws, LLC formation, accounting advice Florida, Hamdan Tax',
+  ogTitle: 'Tax Insights & Bookkeeping Strategies | Hamdan Tax Blog',
+  ogDescription: 'Expert guidance on business bookkeeping, IRS compliance, and strategic financial management.',
+  ogImage: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=1200&q=80',
+  ogType: 'website',
+  twitterCard: 'summary_large_image'
+})
 </script>

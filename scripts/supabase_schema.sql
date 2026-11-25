@@ -38,9 +38,37 @@ BEFORE UPDATE ON public.bookings
 FOR EACH ROW
 EXECUTE FUNCTION public.handle_updated_at();
 
--- إعطاء كافة الصلاحيات لمفتاح الوصول العام للوحة التحكم
-GRANT ALL ON TABLE public.bookings TO anon, authenticated;
-GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO anon, authenticated;
+-- تعديل الحقول لتكون اختيارية باستثناء رقم الهاتف لتمكين الربط مع روبوت واتساب
+ALTER TABLE public.bookings ALTER COLUMN email DROP NOT NULL;
+ALTER TABLE public.bookings ALTER COLUMN name DROP NOT NULL;
+ALTER TABLE public.bookings ALTER COLUMN service DROP NOT NULL;
+
+-- وظيفة ذكية لتحديث بيانات العميل تلقائياً إذا كان رقم هاتفه مسجلاً مسبقاً (Upsert Trigger)
+CREATE OR REPLACE FUNCTION public.handle_upsert_booking()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF EXISTS (SELECT 1 FROM public.bookings WHERE phone = NEW.phone) THEN
+        UPDATE public.bookings
+        SET 
+            name = COALESCE(NULLIF(NEW.name, ''), public.bookings.name),
+            email = COALESCE(NULLIF(NEW.email, ''), public.bookings.email),
+            service = COALESCE(NULLIF(NEW.service, ''), public.bookings.service),
+            message = COALESCE(NULLIF(NEW.message, ''), public.bookings.message),
+            preferred_date = COALESCE(NEW.preferred_date, public.bookings.preferred_date),
+            preferred_time = COALESCE(NULLIF(NEW.preferred_time, ''), public.bookings.preferred_time),
+            updated_at = timezone('utc'::text, now())
+        WHERE phone = NEW.phone;
+        RETURN NULL; -- يمنع تكرار العميل ويكتفي بتحديث بياناته الحالية
+    END IF;
+    RETURN NEW; -- في حال كان عميلاً جديداً تتم إضافته كصف جديد
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS trg_upsert_booking ON public.bookings;
+CREATE TRIGGER trg_upsert_booking
+BEFORE INSERT ON public.bookings
+FOR EACH ROW
+EXECUTE FUNCTION public.handle_upsert_booking();
 
 -- الخيار الأبسط والأضمن: تعطيل نظام حظر الصلاحيات للجدول للسماح بالحذف والتعديل المباشر
 ALTER TABLE public.bookings DISABLE ROW LEVEL SECURITY;
