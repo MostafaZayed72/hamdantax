@@ -58,7 +58,7 @@
             <div class="p-8 bg-slate-900 text-white space-y-6">
               <div class="flex items-center justify-between border-b border-white/10 pb-4">
                 <div>
-                  <div class="text-4xl font-black text-brand-300">13+</div>
+                  <div class="text-4xl font-black text-brand-300">20+</div>
                   <div class="text-xs text-slate-300 font-medium">Years of Experience</div>
                 </div>
                 <div class="w-12 h-12 rounded-xl bg-brand-500/20 text-brand-300 flex items-center justify-center text-2xl">
@@ -67,7 +67,7 @@
               </div>
               <div class="grid grid-cols-2 gap-4">
                 <div>
-                  <div class="text-2xl font-extrabold text-sky-300">500+</div>
+                  <div class="text-2xl font-extrabold text-sky-300">5000+</div>
                   <div class="text-xs text-slate-400">Active Business Clients</div>
                 </div>
                 <div>

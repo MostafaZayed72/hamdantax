@@ -102,11 +102,11 @@
           <!-- شبكة إحصائيات مصغرة مدمجة -->
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-4 border-t border-white/10">
             <div>
-              <div class="text-3xl font-extrabold text-brand-400">13+</div>
+              <div class="text-3xl font-extrabold text-brand-400">20+</div>
               <div class="text-xs text-slate-300 mt-0.5">Years Experience</div>
             </div>
             <div>
-              <div class="text-3xl font-extrabold text-sky-400">500+</div>
+              <div class="text-3xl font-extrabold text-sky-400">5000+</div>
               <div class="text-xs text-slate-300 mt-0.5">Satisfied Clients</div>
             </div>
             <div>

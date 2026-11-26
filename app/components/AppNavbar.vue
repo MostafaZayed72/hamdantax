@@ -20,7 +20,7 @@
         </div>
         <div class="flex items-center gap-4 text-xs font-medium">
           <span>📍 Hallandale Beach, FL</span>
-          <span class="text-brand-400 font-semibold">13+ Years Experience</span>
+          <span class="text-brand-400 font-semibold">20+ Years Experience</span>
         </div>
       </div>
     </div>

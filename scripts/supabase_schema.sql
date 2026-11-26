@@ -79,8 +79,18 @@ ALTER TABLE public.bookings DISABLE ROW LEVEL SECURITY;
 -- CREATE POLICY "Allow delete for bookings" ON public.bookings FOR DELETE TO anon, authenticated USING (true);
 -- CREATE POLICY "Allow update for bookings" ON public.bookings FOR UPDATE TO anon, authenticated USING (true) WITH CHECK (true);
 
--- تفعيل خاصية Realtime لمزامنة التحديثات اللحظية مع الواجهة
-ALTER PUBLICATION supabase_realtime ADD TABLE public.bookings;
+-- تفعيل خاصية Realtime لمزامنة التحديثات اللحظية إذا لم تكن مفعلة مسبقاً
+DO $$
+BEGIN
+    IF NOT EXISTS (
+        SELECT 1 FROM pg_publication_tables 
+        WHERE pubname = 'supabase_realtime' 
+        AND schemaname = 'public' 
+        AND tablename = 'bookings'
+    ) THEN
+        ALTER PUBLICATION supabase_realtime ADD TABLE public.bookings;
+    END IF;
+END $$;
 
 -- ========================================================
 -- بيانات تجريبية اختيارية للاختبار السريع

@@ -106,7 +106,7 @@
         class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 mt-12 sm:mt-16 max-w-5xl mx-auto"
       >
         <div class="p-4 sm:p-5 rounded-2xl bg-slate-900/85 border border-slate-800/90 backdrop-blur-md hover:border-brand-500/40 transition hover:-translate-y-1 shadow-2xl shadow-black/40">
-          <div class="text-2xl sm:text-4xl font-extrabold bg-gradient-to-r from-brand-400 to-sky-300 bg-clip-text text-transparent">13+</div>
+          <div class="text-2xl sm:text-4xl font-extrabold bg-gradient-to-r from-brand-400 to-sky-300 bg-clip-text text-transparent">20+</div>
           <div class="text-xs sm:text-sm text-slate-200 mt-1 font-semibold">Years Experience</div>
         </div>
         <div class="p-4 sm:p-5 rounded-2xl bg-slate-900/85 border border-slate-800/90 backdrop-blur-md hover:border-brand-500/40 transition hover:-translate-y-1 shadow-2xl shadow-black/40">
@@ -114,7 +114,7 @@
           <div class="text-xs sm:text-sm text-slate-200 mt-1 font-semibold">IRS Compliance</div>
         </div>
         <div class="p-4 sm:p-5 rounded-2xl bg-slate-900/85 border border-slate-800/90 backdrop-blur-md hover:border-brand-500/40 transition hover:-translate-y-1 shadow-2xl shadow-black/40">
-          <div class="text-2xl sm:text-4xl font-extrabold bg-gradient-to-r from-brand-400 to-sky-300 bg-clip-text text-transparent">500+</div>
+          <div class="text-2xl sm:text-4xl font-extrabold bg-gradient-to-r from-brand-400 to-sky-300 bg-clip-text text-transparent">5000+</div>
           <div class="text-xs sm:text-sm text-slate-200 mt-1 font-semibold">Happy Clients</div>
         </div>
         <div class="p-4 sm:p-5 rounded-2xl bg-slate-900/85 border border-slate-800/90 backdrop-blur-md hover:border-brand-500/40 transition hover:-translate-y-1 shadow-2xl shadow-black/40">
